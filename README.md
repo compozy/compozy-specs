@@ -14,6 +14,7 @@ Specs whose work is still open. They sit at the root.
 
 | Spec | What it covers | Documents |
 | --- | --- | --- |
+| [2026-08-17-command-palette](2026-08-17-command-palette/) | Command Palette OS-grade overhaul: one command registry behind the palette, keyboard system, menubar, and agent control plane. [Tracking](https://github.com/compozy/compozy/issues/425) | `spec` |
 | [2026-08-15-graph-eng](2026-08-15-graph-eng/) | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
 
 ## Archived
