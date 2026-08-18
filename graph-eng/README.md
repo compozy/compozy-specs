@@ -12,6 +12,26 @@ Closes the four gaps a cross-industry comparison found between the CompozyOS Loo
 4. [`_uiux.md`](_uiux.md) — 11 web surfaces (S1–S11), their states, and their reference artboards.
 5. [`_tests.md`](_tests.md) — 151 test cases mapped to the stories they prove.
 
+## Execution plan
+
+[`_tasks.md`](_tasks.md) is the task graph: 11 tasks with their dependency edges and the MVP boundary. The backend chain (01→07) is strictly serialized by append-only migration ordering — each task owns exactly one migration and none may ride another's. Web follows the backend; the QA pair closes.
+
+| Task | Phase | Scope |
+| --- | --- | --- |
+| [01](task_01.md) | P0 | Cleanup: `hash_fields` deletion, predicate policy, per-gate counters |
+| [02](task_02.md) | P1 | Router: `route` node + gate verdict routing |
+| [03](task_03.md) | P2 | Requests core: `ask` node, respond plane, `ResponderPolicy` |
+| [04](task_04.md) | P3 | Per-lane addressing, review gate, amend overlay |
+| [05](task_05.md) | P4+P5 | Strategies, partial, progress namespace, iteration names |
+| [06](task_06.md) | P6 | Windowed fan-out width |
+| [07](task_07.md) | P7+P8 | Time travel: diff, rerun, fork + cross-cutting suites |
+| [08](task_08.md) | P9 | Web run-page surfaces (S1–S8, S10–S11) + design pass |
+| [09](task_09.md) | P10 | Bell composition (S9, post-herdr seam) |
+| [10](task_10.md) | Tail | QA planning over the living `docs/qa` tree |
+| [11](task_11.md) | Tail | QA execution: scenario walks + browser e2e |
+
+Each task file carries its own requirements, subtasks, assigned test IDs, relevant files, and the prior-art citations its design draws on. The whole suite executes only after the herdr-parity program merges to `main` (ADR-006).
+
 ## Decisions
 
 | ADR | Decision |

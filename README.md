@@ -22,8 +22,9 @@ They live here rather than in the product repo so that the runtime stays lean â€
 | `_uiux.md` | The UI change map: every surface the feature touches, what changes on it, which states must be designed, and its reference artboard. |
 | `_tests.md` | The test contract: every case, its layer, and the story it proves. |
 | `adrs/` | Architecture Decision Records â€” one per fork that was decided, with the alternatives that lost and why. |
+| `_tasks.md` + `task_NN.md` | The execution plan: the task graph with its dependency edges, and one file per task carrying requirements, subtasks, assigned test cases, and the prior art its design draws on. |
 
-Start at `_spec.md`. The other four are its companions, and the spec links into each where it matters.
+Start at `_spec.md`. The other four are its companions, and the spec links into each where it matters. `_tasks.md` is how the spec gets built.
 
 ## Conventions
 
