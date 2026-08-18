@@ -10,29 +10,29 @@ They live here rather than in the product repo so the runtime stays lean — and
 
 Named `YYYY-MM-DD-<slug>`, dated by when the work began.
 
-| Spec | What it covers |
-| --- | --- |
-| [graph-eng](graph-eng/) · *in execution* | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) |
-| [2026-08-16-herdr-parity](2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path |
-| [2026-08-16-electron-shell](2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine |
-| [2026-08-16-agent-plugins](2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) |
-| [2026-08-12-worktree-support](2026-08-12-worktree-support/) | Native git worktrees so parallel agents stop overwriting each other's uncommitted state |
-| [2026-08-10-desktop-app](2026-08-10-desktop-app/) | Shipping CompozyOS as a real desktop app instead of one more browser tab |
-| [2026-08-06-remote-gateway](2026-08-06-remote-gateway/) | Unlocking the daemon from its machine: remote auth, inbound events, bridge delivery without self-hosted proxies |
-| [2026-08-02-loop-node-lifecycle](2026-08-02-loop-node-lifecycle/) | The inner contract of a Loop node: what one node does when the world fails around it |
-| [2026-08-02-bundles-removal](2026-08-02-bundles-removal/) | Hard-deleting the Bundle product so Extension is the only kit unit |
-| [2026-08-01-loops-paper-adoption](2026-08-01-loops-paper-adoption/) | Adopting the validated mechanisms from arXiv 2607.19297 into the Loop domain — and recording what was rejected |
-| [2026-07-30-window-tabs](2026-07-30-window-tabs/) | Tabs for the desktop: many surfaces per window instead of a frame per surface |
-| [2026-07-29-ext-improvs](2026-07-29-ext-improvs/) | Making extensions authorable from outside this repo, and distributable without a gatekeeper |
-| [2026-07-29-cross-workspace-access](2026-07-29-cross-workspace-access/) | Opening a door in workspace isolation through the session permission mode operators already know |
-| [2026-07-26-network-changes](2026-07-26-network-changes/) | Making Agent Network participation opt-in instead of implicitly enrolling ordinary work |
-| [2026-07-26-hermes-comparison](2026-07-26-hermes-comparison/) | Improvements drawn from a Hermes comparison: memory, tools, redaction, cost estimation |
-| [2026-07-26-hermes-bridge](2026-07-26-hermes-bridge/) | Bridge usability parity: tool-call progress and one-shot delivery |
-| [2026-07-26-compozy-migration](2026-07-26-compozy-migration/) | The hard cut from AGH to Compozy v0.3.0, closing the approved parity gaps |
-| [2026-07-25-modals-redesign](2026-07-25-modals-redesign/) | Landing the 16 designed entity editors, with the modal standard and state matrix behind them |
-| [2026-07-24-window-management](2026-07-24-window-management/) | Daemon-authoritative window management: virtual desktops, tiled groups, floating windows |
-| [2026-07-24-os-shell](2026-07-24-os-shell/) | Turning the web experience from a one-page-at-a-time dashboard into an actual OS shell |
-| [2026-07-24-scheduler-capacity-starvation](2026-07-24-scheduler-capacity-starvation/) | Fixing a scheduler that treated a busy compatible worker as no worker at all |
+| Spec | What it covers | Documents |
+| --- | --- | --- |
+| [graph-eng](graph-eng/) · *in execution* | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
+| [2026-08-16-herdr-parity](2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path | `spec` |
+| [2026-08-16-electron-shell](2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine | `spec` |
+| [2026-08-16-agent-plugins](2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) | `spec` |
+| [2026-08-12-worktree-support](2026-08-12-worktree-support/) | Native git worktrees so parallel agents stop overwriting each other's uncommitted state | `prd + techspec` |
+| [2026-08-10-desktop-app](2026-08-10-desktop-app/) | Shipping CompozyOS as a real desktop app instead of one more browser tab | `brief + prd + techspec` |
+| [2026-08-06-remote-gateway](2026-08-06-remote-gateway/) | Unlocking the daemon from its machine: remote auth, inbound events, bridge delivery without self-hosted proxies | `prd + techspec` |
+| [2026-08-02-loop-node-lifecycle](2026-08-02-loop-node-lifecycle/) | The inner contract of a Loop node: what one node does when the world fails around it | `prd + techspec` |
+| [2026-08-02-bundles-removal](2026-08-02-bundles-removal/) | Hard-deleting the Bundle product so Extension is the only kit unit | `brief + techspec` |
+| [2026-08-01-loops-paper-adoption](2026-08-01-loops-paper-adoption/) | Adopting the validated mechanisms from arXiv 2607.19297 into the Loop domain — and recording what was rejected | `techspec` |
+| [2026-07-30-window-tabs](2026-07-30-window-tabs/) | Tabs for the desktop: many surfaces per window instead of a frame per surface | `prd + techspec` |
+| [2026-07-29-ext-improvs](2026-07-29-ext-improvs/) | Making extensions authorable from outside this repo, and distributable without a gatekeeper | `brief + techspec` |
+| [2026-07-29-cross-workspace-access](2026-07-29-cross-workspace-access/) | Opening a door in workspace isolation through the session permission mode operators already know | `techspec` |
+| [2026-07-26-network-changes](2026-07-26-network-changes/) | Making Agent Network participation opt-in instead of implicitly enrolling ordinary work | `prd + techspec` |
+| [2026-07-26-hermes-comparison](2026-07-26-hermes-comparison/) | Improvements drawn from a Hermes comparison: memory, tools, redaction, cost estimation | `techspec` |
+| [2026-07-26-hermes-bridge](2026-07-26-hermes-bridge/) | Bridge usability parity: tool-call progress and one-shot delivery | `techspec` |
+| [2026-07-26-compozy-migration](2026-07-26-compozy-migration/) | The hard cut from AGH to Compozy v0.3.0, closing the approved parity gaps | `brief + techspec` |
+| [2026-07-25-modals-redesign](2026-07-25-modals-redesign/) | Landing the 16 designed entity editors, with the modal standard and state matrix behind them | `spec + techspec` |
+| [2026-07-24-window-management](2026-07-24-window-management/) | Daemon-authoritative window management: virtual desktops, tiled groups, floating windows | `techspec` |
+| [2026-07-24-os-shell](2026-07-24-os-shell/) | Turning the web experience from a one-page-at-a-time dashboard into an actual OS shell | `prd + techspec` |
+| [2026-07-24-scheduler-capacity-starvation](2026-07-24-scheduler-capacity-starvation/) | Fixing a scheduler that treated a busy compatible worker as no worker at all | `techspec` |
 
 ## How a spec set is organized
 
@@ -48,11 +48,21 @@ The document set changed shape over time. Two generations appear here.
 | `_uiux.md` | The UI change map: every surface touched, what changes on it, which states must be designed. |
 | `_tests.md` | The test contract: every case, its layer, and the story it proves. |
 
-**Earlier (split pipeline).** The same content, divided differently — `_prd.md` for the product side and `_techspec.md` for the technical design, sometimes with `_brief.md` in front of them. A few specs are technical-only and carry just `_techspec.md`.
+Read `_spec.md` first; the companions are linked from it where they matter.
 
-**Common to both.** `adrs/` holds the Architecture Decision Records — one per fork that was decided, with the alternatives that lost and why. `_tasks.md` plus `task_NN.md` is the execution plan: the task graph with its dependency edges, and one file per task carrying requirements, subtasks, assigned test cases, and the prior art its design draws on.
+**Earlier (split pipeline).** The same content, divided across separate documents rather than parts of one:
 
-Start at `_spec.md` (or `_prd.md`). The companions are linked from it where they matter.
+| File | What it holds |
+| --- | --- |
+| `_brief.md` | The framing that preceded the spec — the problem, the evidence gathered, the scope decision. Present when the work started from an open question. |
+| `_prd.md` | The product side: overview, goals, user stories, features, business rules, non-goals. Equivalent to Part I above. |
+| `_techspec.md` | The technical design: architecture, data models, endpoints, sequencing, invariants. Equivalent to Part II above. |
+
+Read them in that order — `_brief.md` → `_prd.md` → `_techspec.md` — then the companions (`_user_stories.md`, `_tests.md`, and `_uiux.md` where the work touched the UI).
+
+Not every spec carries every document. Some began as a technical decision with no separate product framing and carry only `_techspec.md`; the shape tells you how the work started. `2026-07-25-modals-redesign` sits across the change and carries both a `_spec.md` and a `_techspec.md`.
+
+**Common to both generations.** `adrs/` holds the Architecture Decision Records — one per fork that was decided, with the alternatives that lost and why. `_tasks.md` plus `task_NN.md` is the execution plan: the task graph with its dependency edges, and one file per task carrying requirements, subtasks, assigned test cases, and the prior art its design draws on.
 
 ## Conventions
 
