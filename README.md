@@ -12,7 +12,7 @@ Named `YYYY-MM-DD-<slug>`, dated by when the work began.
 
 | Spec | What it covers | Documents |
 | --- | --- | --- |
-| [graph-eng](graph-eng/) · *in execution* | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
+| [2026-08-15-graph-eng](2026-08-15-graph-eng/) · *in execution* | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
 | [2026-08-16-herdr-parity](2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path | `spec` |
 | [2026-08-16-electron-shell](2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine | `spec` |
 | [2026-08-16-agent-plugins](2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) | `spec` |
