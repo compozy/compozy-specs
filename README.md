@@ -6,33 +6,44 @@ Each folder holds the document set behind one feature: what it does and why, the
 
 They live here rather than in the product repo so the runtime stays lean — and so the reasoning behind a change is readable without cloning the daemon.
 
-## Index
+Specs with open work sit at the root; the rest move to `_archived/` when their workstream closes.
 
-Named `YYYY-MM-DD-<slug>`, dated by when the work began.
+## Active
+
+Specs whose work is still open. They sit at the root.
 
 | Spec | What it covers | Documents |
 | --- | --- | --- |
-| [2026-08-15-graph-eng](2026-08-15-graph-eng/) · *in execution* | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
-| [2026-08-16-herdr-parity](2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path | `spec` |
-| [2026-08-16-electron-shell](2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine | `spec` |
-| [2026-08-16-agent-plugins](2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) | `spec` |
-| [2026-08-12-worktree-support](2026-08-12-worktree-support/) | Native git worktrees so parallel agents stop overwriting each other's uncommitted state | `prd + techspec` |
-| [2026-08-10-desktop-app](2026-08-10-desktop-app/) | Shipping CompozyOS as a real desktop app instead of one more browser tab | `brief + prd + techspec` |
-| [2026-08-06-remote-gateway](2026-08-06-remote-gateway/) | Unlocking the daemon from its machine: remote auth, inbound events, bridge delivery without self-hosted proxies | `prd + techspec` |
-| [2026-08-02-loop-node-lifecycle](2026-08-02-loop-node-lifecycle/) | The inner contract of a Loop node: what one node does when the world fails around it | `prd + techspec` |
-| [2026-08-02-bundles-removal](2026-08-02-bundles-removal/) | Hard-deleting the Bundle product so Extension is the only kit unit | `brief + techspec` |
-| [2026-08-01-loops-paper-adoption](2026-08-01-loops-paper-adoption/) | Adopting the validated mechanisms from arXiv 2607.19297 into the Loop domain — and recording what was rejected | `techspec` |
-| [2026-07-30-window-tabs](2026-07-30-window-tabs/) | Tabs for the desktop: many surfaces per window instead of a frame per surface | `prd + techspec` |
-| [2026-07-29-ext-improvs](2026-07-29-ext-improvs/) | Making extensions authorable from outside this repo, and distributable without a gatekeeper | `brief + techspec` |
-| [2026-07-29-cross-workspace-access](2026-07-29-cross-workspace-access/) | Opening a door in workspace isolation through the session permission mode operators already know | `techspec` |
-| [2026-07-26-network-changes](2026-07-26-network-changes/) | Making Agent Network participation opt-in instead of implicitly enrolling ordinary work | `prd + techspec` |
-| [2026-07-26-hermes-comparison](2026-07-26-hermes-comparison/) | Improvements drawn from a Hermes comparison: memory, tools, redaction, cost estimation | `techspec` |
-| [2026-07-26-hermes-bridge](2026-07-26-hermes-bridge/) | Bridge usability parity: tool-call progress and one-shot delivery | `techspec` |
-| [2026-07-26-compozy-migration](2026-07-26-compozy-migration/) | The hard cut from AGH to Compozy v0.3.0, closing the approved parity gaps | `brief + techspec` |
-| [2026-07-25-modals-redesign](2026-07-25-modals-redesign/) | Landing the 16 designed entity editors, with the modal standard and state matrix behind them | `spec + techspec` |
-| [2026-07-24-window-management](2026-07-24-window-management/) | Daemon-authoritative window management: virtual desktops, tiled groups, floating windows | `techspec` |
-| [2026-07-24-os-shell](2026-07-24-os-shell/) | Turning the web experience from a one-page-at-a-time dashboard into an actual OS shell | `prd + techspec` |
-| [2026-07-24-scheduler-capacity-starvation](2026-07-24-scheduler-capacity-starvation/) | Fixing a scheduler that treated a busy compatible worker as no worker at all | `techspec` |
+| [2026-08-15-graph-eng](2026-08-15-graph-eng/) | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
+
+## Archived
+
+Specs whose workstream is closed. They live under [`_archived/`](_archived/), newest first.
+
+| Spec | What it covers | Documents |
+| --- | --- | --- |
+| [2026-08-16-herdr-parity](_archived/2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path | `spec` |
+| [2026-08-16-electron-shell](_archived/2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine | `spec` |
+| [2026-08-16-agent-plugins](_archived/2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) | `spec` |
+| [2026-08-12-worktree-support](_archived/2026-08-12-worktree-support/) | Native git worktrees so parallel agents stop overwriting each other's uncommitted state | `prd + techspec` |
+| [2026-08-10-desktop-app](_archived/2026-08-10-desktop-app/) | Shipping CompozyOS as a real desktop app instead of one more browser tab | `brief + prd + techspec` |
+| [2026-08-06-remote-gateway](_archived/2026-08-06-remote-gateway/) | Unlocking the daemon from its machine: remote auth, inbound events, bridge delivery without self-hosted proxies | `prd + techspec` |
+| [2026-08-02-loop-node-lifecycle](_archived/2026-08-02-loop-node-lifecycle/) | The inner contract of a Loop node: what one node does when the world fails around it | `prd + techspec` |
+| [2026-08-02-bundles-removal](_archived/2026-08-02-bundles-removal/) | Hard-deleting the Bundle product so Extension is the only kit unit | `brief + techspec` |
+| [2026-08-01-loops-paper-adoption](_archived/2026-08-01-loops-paper-adoption/) | Adopting the validated mechanisms from arXiv 2607.19297 into the Loop domain — and recording what was rejected | `techspec` |
+| [2026-07-30-window-tabs](_archived/2026-07-30-window-tabs/) | Tabs for the desktop: many surfaces per window instead of a frame per surface | `prd + techspec` |
+| [2026-07-29-ext-improvs](_archived/2026-07-29-ext-improvs/) | Making extensions authorable from outside this repo, and distributable without a gatekeeper | `brief + techspec` |
+| [2026-07-29-cross-workspace-access](_archived/2026-07-29-cross-workspace-access/) | Opening a door in workspace isolation through the session permission mode operators already know | `techspec` |
+| [2026-07-26-network-changes](_archived/2026-07-26-network-changes/) | Making Agent Network participation opt-in instead of implicitly enrolling ordinary work | `prd + techspec` |
+| [2026-07-26-hermes-comparison](_archived/2026-07-26-hermes-comparison/) | Improvements drawn from a Hermes comparison: memory, tools, redaction, cost estimation | `techspec` |
+| [2026-07-26-hermes-bridge](_archived/2026-07-26-hermes-bridge/) | Bridge usability parity: tool-call progress and one-shot delivery | `techspec` |
+| [2026-07-26-compozy-migration](_archived/2026-07-26-compozy-migration/) | The hard cut from AGH to Compozy v0.3.0, closing the approved parity gaps | `brief + techspec` |
+| [2026-07-25-modals-redesign](_archived/2026-07-25-modals-redesign/) | Landing the 16 designed entity editors, with the modal standard and state matrix behind them | `spec + techspec` |
+| [2026-07-24-window-management](_archived/2026-07-24-window-management/) | Daemon-authoritative window management: virtual desktops, tiled groups, floating windows | `techspec` |
+| [2026-07-24-os-shell](_archived/2026-07-24-os-shell/) | Turning the web experience from a one-page-at-a-time dashboard into an actual OS shell | `prd + techspec` |
+| [2026-07-24-scheduler-capacity-starvation](_archived/2026-07-24-scheduler-capacity-starvation/) | Fixing a scheduler that treated a busy compatible worker as no worker at all | `techspec` |
+
+Every folder is named `YYYY-MM-DD-<slug>`, dated by when the work began. Archiving moves a spec; it never rewrites one.
 
 ## How a spec set is organized
 
