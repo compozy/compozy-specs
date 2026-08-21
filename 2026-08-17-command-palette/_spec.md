@@ -821,7 +821,7 @@ P2+ depend on P1 (registry contract). P6 depends on P5 (view vocabulary) and P1.
 - `.resources/supercmd/src/renderer/src/hooks/useLauncherCommandModel.ts` — pure derivation pipeline + empty-query grouping.
 - `.resources/supercmd/src/renderer/src/settings/HotkeyRecorder.tsx` — e.code capture rules.
 - `.resources/supercmd/src/main/main.ts:~14839` — typed duplicate-conflict + restore-previous registration.
-- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `~/dev/compozy-code` — not vendored under `.resources/`): descriptor contract `packages/tauri/src/app-core/shared/commander.ts`, conflict logic `src-tauri/src/plugins/commander/shortcuts.rs`, formatter `renderer/lib/commander/shortcut-formatter.ts`.
+- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `/Users/pedronauck/Dev/compozy/compozy-code` — not vendored under `.resources/`): descriptor contract `packages/tauri/src/app-core/shared/commander.ts`, conflict logic `src-tauri/src/plugins/commander/shortcuts.rs`, formatter `renderer/lib/commander/shortcut-formatter.ts`.
 
 ### Design and Analysis Sources
 

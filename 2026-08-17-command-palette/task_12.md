@@ -1,5 +1,5 @@
 ---
-status: pending
+status: in_progress
 title: "Real-User QA Execution"
 type: qa-execution
 complexity: critical

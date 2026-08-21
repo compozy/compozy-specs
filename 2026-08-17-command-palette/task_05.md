@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P4 — Keyboard: Open-ID Keymap, Aliases, Config, Settings Surfaces"
 type: backend
 complexity: high
@@ -45,15 +45,15 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_05/<
 
 ## Subtasks
 
-- [ ] 5.1 `BindableIDs` seam in `internal/windowmanager` + composition-root wiring; delete the closed-set validation in `internal/config/window_manager.go`; tolerant unknown-id reads
-- [ ] 5.2 Alias storage + validation + pruning in the daemon path (`[cmd_palette.aliases]` root, WM settings PATCH ride-along)
-- [ ] 5.3 `internal/config/cmd_palette.go` + defaults + validation + overlay/merge/clone + `tool_surface.go` registration + `config.toml` docs/examples
-- [ ] 5.4 `SectionCmdPalette` (personalization controls) + `window_manager_section.go` extension (aliases + open-id diffs) + contract consts + OpenAPI + payload projections
-- [ ] 5.5 CLI mutation verbs (`bind|unbind|alias|bindings|pin|unpin`) with transcript-exact output/errors/exit codes
-- [ ] 5.6 Settings shortcut table UI: whole-registry listing + source filter + recorder conflict/overwrite/reset + alias cell
-- [ ] 5.7 Cheatsheet derivation extension (registry-wide, source grouping) + "Title (alias)" row rendering + badge re-render on PATCH
-- [ ] 5.8 Transport parity rows + `make codegen` co-ship + skills/compozy (P4 verbs) + site docs (`configuration/shortcuts.mdx`, config reference)
-- [ ] 5.9 Visual Contract evidence bundles VC-01..04
+- [x] 5.1 `BindableIDs` seam in `internal/windowmanager` + composition-root wiring; delete the closed-set validation in `internal/config/window_manager.go`; tolerant unknown-id reads
+- [x] 5.2 Alias storage + validation + pruning in the daemon path (`[cmd_palette.aliases]` root, WM settings PATCH ride-along)
+- [x] 5.3 `internal/config/cmd_palette.go` + defaults + validation + overlay/merge/clone + `tool_surface.go` registration + `config.toml` docs/examples
+- [x] 5.4 `SectionCmdPalette` (personalization controls) + `window_manager_section.go` extension (aliases + open-id diffs) + contract consts + OpenAPI + payload projections
+- [x] 5.5 CLI mutation verbs (`bind|unbind|alias|bindings|pin|unpin`) with transcript-exact output/errors/exit codes
+- [x] 5.6 Settings shortcut table UI: whole-registry listing + source filter + recorder conflict/overwrite/reset + alias cell
+- [x] 5.7 Cheatsheet derivation extension (registry-wide, source grouping) + "Title (alias)" row rendering + badge re-render on PATCH
+- [x] 5.8 Transport parity rows + `make codegen` co-ship + skills/compozy (P4 verbs) + site docs (`configuration/shortcuts.mdx`, config reference)
+- [ ] 5.9 Visual Contract evidence bundles VC-01..04 — deferred to task_12 by the accepted tail-only QA policy
 
 ## Implementation Details
 
@@ -86,7 +86,7 @@ Reference `_spec.md` Part II: Config Lifecycle (the authoritative checklist for 
 ### Competitor References
 
 - `.resources/supercmd/src/renderer/src/settings/HotkeyRecorder.tsx` — e.code capture rules for the recorder
-- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `~/dev/compozy-code` — not vendored under `.resources/`): conflict logic `src-tauri/src/plugins/commander/shortcuts.rs`, formatter `renderer/lib/commander/shortcut-formatter.ts`.
+- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `/Users/pedronauck/Dev/compozy/compozy-code` — not vendored under `.resources/`): conflict logic `src-tauri/src/plugins/commander/shortcuts.rs`, formatter `renderer/lib/commander/shortcut-formatter.ts`.
 
 ### Related ADRs
 
@@ -118,12 +118,12 @@ Reference `_spec.md` Part II: Config Lifecycle (the authoritative checklist for 
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-070, UT-071, UT-072, UT-073, UT-074 — open-id acceptance, conflict naming + overwrite, shadow classification, bare-letter guard, tolerant unknown-id reads
-- [ ] UT-080, UT-081, UT-082, UT-083 — config defaults/validation (alias grammar, fallback target values), section build/diff/apply + Live lifecycle
-- [ ] UT-148, UT-149 — table + recorder + conflict/overwrite/loser flow; alias cell + "(alias)" rendering
-- [ ] IT-013 — WM settings PATCH bindings: effective map, 409 conflict naming owner, tolerated unknown ids, concurrent convergence
-- [ ] IT-014 — aliases via PATCH: round-trip, 422 grammar, visibility in commands GET
-- [ ] IT-025 — keymap Live apply without restart
+- [x] UT-070, UT-071, UT-072, UT-073, UT-074 — open-id acceptance, conflict naming + overwrite, shadow classification, bare-letter guard, tolerant unknown-id reads
+- [x] UT-080, UT-081, UT-082, UT-083 — config defaults/validation (alias grammar, fallback target values), section build/diff/apply + Live lifecycle
+- [x] UT-148, UT-149 — table + recorder + conflict/overwrite/loser flow; alias cell + "(alias)" rendering
+- [x] IT-013 — WM settings PATCH bindings: effective map, 409 conflict naming owner, tolerated unknown ids, concurrent convergence
+- [x] IT-014 — aliases via PATCH: round-trip, 422 grammar, visibility in commands GET
+- [x] IT-025 — keymap Live apply without restart
 
 Note: E2E-016 and E2E-025 are owned by task_07 — their frozen transcripts require the extension fixture that first exists in P6; this task closes on its settings/keymap suites per the P4 gate.
 

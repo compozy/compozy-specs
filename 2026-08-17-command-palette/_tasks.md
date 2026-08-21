@@ -76,7 +76,7 @@ Tasks 01–05 implement the MVP (Build Order P1–P4): the daemon-canonical regi
 
 | #  | Title                                                                     | Status  | Complexity | Dependencies     |
 | -- | ------------------------------------------------------------------------- | ------- | ---------- | ---------------- |
-| 01 | P1 Daemon — Unified Registry, Approval Substrate, Agent Surface           | pending | critical   | -                |
+| 01 | P1 Daemon — Unified Registry, Approval Substrate, Agent Surface           | current | critical   | -                |
 | 02 | P1 Web — Registry Projection, Dispatch Seam, Core Absorption              | pending | high       | task_01          |
 | 03 | P2 — Personalization, Single TS Scorer, Entity + Settings Search          | pending | high       | task_02          |
 | 04 | P3 — Execution UX: Action Panel, Inline Args, Confirmation, Feedback      | pending | medium     | task_02          |

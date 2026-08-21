@@ -6,7 +6,7 @@ Companions: `_spec.md` Part I (behavior authority), `_user_stories.md` (states c
 
 ## Design constraints (apply to every artboard)
 
-- **Locked palette grammar (herdr DESIGN-NOTES, binding):** shell-glass floating chrome (`--shell-glass-pop`, blur 30–34px, 12–14px radii, `--shadow-overlay` + top light edge); selection is a neutral plate (`--row-selected` + top light edge) — the inset-accent marker stays retired; rows carry 18px tinted glyph roundels (`.sig`); never state by color alone (glyph + label always).
+- **Locked palette grammar (production parity, binding — supersedes the herdr glass inheritance, 2026-08-18 round 3):** the palette is FLAT (`DESIGN.md` §5 + live `os-command-palette.tsx`): opaque `--color-canvas-soft` panel, `--radius-lg`, `--shadow-overlay` on the floating popup, `--shadow-hairline` on nested popups (action panel, dropdowns, tooltips); the only blur is the 3px `--overlay-blur` scrim; glass belongs to OS-shell chrome (menubar/dock), never the palette. Selection is the `--color-elevated` raise + `text-fg-strong` (production `CommandItem` `data-selected`) — no `--row-selected` plate, no top-light-edge rim, no accent bar; rows carry 18px tinted glyph roundels (`SessionBadgeGlyph` grammar); never state by color alone (glyph + label always).
 - **Signal mapping (proposed; design pass finalizes):** destructive actions/confirmations `#E0635A` danger · attention/needs-you follows the existing badge→tone dictionary (no second tone map — anti-duplication rule) · extension-source chips `#8E8EB5` info · success feedback `#5FBF85`.
 - **Truthful UI:** availability reasons come from the runtime verbatim; unknown availability renders as disabled-generic ("unavailable right now"), never invented specifics; global-hotkey controls are absent (not disabled) when no desktop shell exists — except in Settings, where the disabled state carries the "requires desktop shell" reason (US-024.AC-4); no fake progress — async feedback reflects real invocation state (US-017).
 - **Keyboard/a11y notes:** ARIA combobox pattern throughout (input keeps focus, `aria-activedescendant` selection); dialog focus trap + restore to trigger; ⌘K toggles the action panel open/closed; Esc ladder: panel → confirmation/args → view stack → close; ⌫ pops only on empty query; grid adds ←→ without breaking the ladder; every artboard state reachable keyboard-only.
@@ -149,7 +149,7 @@ Companions: `_spec.md` Part I (behavior authority), `_user_stories.md` (states c
 
 ### Rules
 
-- Compose from `@compozy/ui` `Command*` primitives + `Dialog`, `Badge`, `StatusDot`/`PillDot`; artboard CSS is a visual contract, never a stylesheet to import.
+- Compose from `@compozy/ui` `Command*` primitives + `Dialog`, `Pill`/`KindChip`/`MonoId`, `StatusDot`/`PillDot`, `Kbd` (`@compozy/ui` exports no generic `Badge` — `Pill` is the chip vocabulary); artboard CSS is a visual contract, never a stylesheet to import. The authoritative class → primitive table is the "Production component map" in `docs/design/opendesign/command-palette/DESIGN-NOTES.md`.
 - One registry-consumption path: every surface (root, views, panel, menubar, cheatsheet, settings) renders from the same client-side registry projection — no surface-local command arrays.
 - Shared dictionaries are mandatory: status-tone map, attention comparator, chord formatter/glyphs; no view-local forks (anti-duplication rules from herdr bind here).
 - Domain views reuse the Sessions row/chips/note primitives (`os-palette-session-*` generalized), not forks per domain.
@@ -175,8 +175,8 @@ None expected. `Command*`, `Dialog`, `Badge`, dots, and existing form controls c
 
 | Design state/glyph                     | Primitive + token                                              |
 | -------------------------------------- | -------------------------------------------------------------- |
-| Selected row                           | neutral plate `--row-selected` + top light edge (no accent bar) |
-| Row glyph roundel                      | 18px `.sig` tinted roundel, tone from shared dictionary         |
+| Selected row                           | `bg-elevated` + `text-fg-strong` raise (production `CommandItem` `data-selected`; no accent bar, no rim) |
+| Row glyph roundel                      | 18px tinted roundel (`SessionBadgeGlyph`), tone from shared dictionary; running pulses on `--color-accent-tint` |
 | Destructive action / confirm           | danger `#E0635A` text + glyph; confirm button danger emphasis   |
 | Needs-you / attention badge            | existing badge→tone dictionary (danger), unchanged              |
 | Extension source chip                  | info `#8E8EB5` chip with extension name                         |

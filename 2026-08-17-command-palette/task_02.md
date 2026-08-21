@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P1 Web — Registry Projection, Dispatch Seam, Core Absorption"
 type: frontend
 complexity: high
@@ -50,18 +50,18 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_02/<
 
 ## Subtasks
 
-- [ ] 2.1 `packages/ui` Command custom-filter tests + stories (`shouldFilter={false}`, external order, selection survival) — lands first
-- [ ] 2.2 cmd-palette client in `web/src/systems/os/`: adapter (typed error class, AbortSignal), query keys/options, generated-type consumption via `apiClient`
-- [ ] 2.3 IndexedDB structural cache: wrapper module + `fake-indexeddb` test double + corrupt/version-mismatch drop semantics
-- [ ] 2.4 Hydration hook (SWR, revision-keyed) + SSE consumer (named listener via `createStreamEventSource`) + MSW fixtures/handlers
-- [ ] 2.5 Context evaluator (closed key set, snapshot-driven, debounced flaps, never allow-all)
-- [ ] 2.6 Dispatch seam (client_op/tool/navigate/url) + stale-target honesty + usage POST wiring
-- [ ] 2.7 `PaletteResults` projection + section assembly replacing the four group components; destination mode re-sourced as a registry query
-- [ ] 2.8 Registry-driven view resolution replacing `PALETTE_VIEW_FRAMES`/`PaletteViewId` (Sessions view intact on the new resolution)
-- [ ] 2.9 Menubar projection (`MenubarCommandItem` across the six menus) + cheatsheet derivation + settings shortcut-table re-source (listing only)
-- [ ] 2.10 Keyboard path re-route: `use-os-shortcuts` dispatches registry ids through the seam; delete the if-chain + BR-20 landing divergence
-- [ ] 2.11 Execute the delete list + update canonical suites/stories + promote palette selectors into `web/e2e/fixtures/os-navigation.ts`
-- [ ] 2.12 Visual Contract evidence bundles for VC-01..06
+- [x] 2.1 `packages/ui` Command custom-filter tests + stories (`shouldFilter={false}`, external order, selection survival) — lands first
+- [x] 2.2 cmd-palette client in `web/src/systems/os/`: adapter (typed error class, AbortSignal), query keys/options, generated-type consumption via `apiClient`
+- [x] 2.3 IndexedDB structural cache: wrapper module + `fake-indexeddb` test double + corrupt/version-mismatch drop semantics
+- [x] 2.4 Hydration hook (SWR, revision-keyed) + SSE consumer (named listener via `createStreamEventSource`) + MSW fixtures/handlers
+- [x] 2.5 Context evaluator (closed key set, snapshot-driven, debounced flaps, never allow-all)
+- [x] 2.6 Dispatch seam (client_op/tool/navigate/url) + stale-target honesty + usage POST wiring
+- [x] 2.7 `PaletteResults` projection + section assembly replacing the four group components; destination mode re-sourced as a registry query
+- [x] 2.8 Registry-driven view resolution replacing `PALETTE_VIEW_FRAMES`/`PaletteViewId` (Sessions view intact on the new resolution)
+- [x] 2.9 Menubar projection (`MenubarCommandItem` across the six menus) + cheatsheet derivation + settings shortcut-table re-source (listing only)
+- [x] 2.10 Keyboard path re-route: `use-os-shortcuts` dispatches registry ids through the seam; delete the if-chain + BR-20 landing divergence
+- [x] 2.11 Execute the delete list + update canonical suites/stories + promote palette selectors into `web/e2e/fixtures/os-navigation.ts`
+- [x] 2.12 Visual Contract evidence bundles for VC-01..06 — deferred to the task_12 QA tail by the accepted execution policy; no implementation-only capture is claimed as parity evidence
 
 ## Implementation Details
 
@@ -135,13 +135,13 @@ Reference `_spec.md` Part II: System Architecture (web projection row), Key Deci
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-095, UT-096, UT-097, UT-098, UT-099, UT-100, UT-101, UT-102, UT-103, UT-104 — hydration/SWR, daemon-loss + exempt, hidden-vs-disabled, verbatim reasons, globe write path, context evaluator, no-allow-all, chord badges, flap debounce, named SSE listener
-- [ ] UT-105, UT-106, UT-107, UT-108 — dispatch seam routing, stale-target honesty, destination∧stack exclusion, zero-eligible empty
-- [ ] UT-145, UT-146, UT-147 — menubar projection, disabled-with-reason stability, extension-item removal (fixture-level catalog data)
-- [ ] UT-152, UT-153, UT-154 — `packages/ui` Command custom-filter path
-- [ ] E2E-015 — destination flow + zero-eligible variant
-- [ ] E2E-018 — daemon stop/restart degradation + exempt cheatsheet + re-enable
-- [ ] E2E-019 — menubar chord/label/availability parity + live rebind reflection
+- [x] UT-095, UT-096, UT-097, UT-098, UT-099, UT-100, UT-101, UT-102, UT-103, UT-104 — hydration/SWR, daemon-loss + exempt, hidden-vs-disabled, verbatim reasons, globe write path, context evaluator, no-allow-all, chord badges, flap debounce, named SSE listener
+- [x] UT-105, UT-106, UT-107, UT-108 — dispatch seam routing, stale-target honesty, destination∧stack exclusion, zero-eligible empty
+- [x] UT-145, UT-146, UT-147 — menubar projection, disabled-with-reason stability, extension-item removal (fixture-level catalog data)
+- [x] UT-152, UT-153, UT-154 — `packages/ui` Command custom-filter path
+- [x] E2E-015 — destination flow + zero-eligible variant (implemented; execution deferred to task_12)
+- [x] E2E-018 — daemon stop/restart degradation + exempt cheatsheet + re-enable (implemented; execution deferred to task_12)
+- [x] E2E-019 — menubar chord/label/availability parity + live rebind reflection (implemented; execution deferred to task_12)
 
 ## Success Criteria
 

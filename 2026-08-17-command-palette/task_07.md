@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P6 — Extension Contribution: Manifest Family, Projection, Declarative Tier"
 type: backend
 complexity: high
@@ -45,16 +45,16 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_07/<
 
 ## Subtasks
 
-- [ ] 7.1 Manifest family: `CmdPaletteConfig` types + key constants + normalize + encode + validate (field-naming errors; read-only source-tool enforcement; chord grammar; contract types for codegen propagation)
-- [ ] 7.2 `Manager.CmdPalette(workspaceID)` projection (enable-scoped, health-gated, dev-overlay) + `cmdpalette.Provider` wiring at `boot_resource_graph.go`
-- [ ] 7.3 Membership-vs-health semantics through the catalog: last-known descriptors on unhealthy, atomic revision per transition, source statuses in `sources`
-- [ ] 7.4 Extension-default shortcut tier in the keymap (bind-only-if-free, deterministic tie-break, dormant visibility, disable/re-enable semantics) + settings payload `extension_defaults`
-- [ ] 7.5 Dev reload path: watch → projection refresh → `catalog.changed`; broken-edit last-good + diagnostics
-- [ ] 7.6 S16 `ExtensionPalettePanel` in the extensions settings detail
-- [ ] 7.7 Go fixture extension (`ext.notes` shapes: capture/recent/purge + default chord + Tier-1 view) in `internal/extension/testdata/`
-- [ ] 7.8 Deferred P4 journeys: E2E-016 + E2E-025 on the fixture
-- [ ] 7.9 Docs (`extensions/cmd-palette.mdx` new + `manifest.mdx` + navigation) + `skills/compozy/` + codegen co-ship
-- [ ] 7.10 Visual Contract evidence bundles VC-01..03
+- [x] 7.1 Manifest family: `CmdPaletteConfig` types + key constants + normalize + encode + validate (field-naming errors; read-only source-tool enforcement; chord grammar; contract types for codegen propagation)
+- [x] 7.2 `Manager.CmdPalette(workspaceID)` projection (enable-scoped, health-gated, dev-overlay) + `cmdpalette.Provider` wiring at the composition root
+- [x] 7.3 Membership-vs-health semantics through the catalog: last-known descriptors on unhealthy, atomic revision per transition, source statuses in `sources`
+- [x] 7.4 Extension-default shortcut tier in the keymap (bind-only-if-free, deterministic tie-break, dormant visibility, disable/re-enable semantics) + settings payload `extension_defaults`
+- [x] 7.5 Dev reload path: watch → projection refresh → `catalog.changed`; broken-edit last-good + diagnostics
+- [x] 7.6 S16 `ExtensionPalettePanel` in the extensions settings detail
+- [x] 7.7 Go fixture extension (`ext.notes` shapes: capture/recent/purge + default chord + Tier-1 view) in `internal/extension/testdata/`
+- [ ] 7.8 Deferred P4 journeys: E2E-016 + E2E-025 on the fixture — execution remains in the accepted task_12 QA tail
+- [x] 7.9 Docs (`extensions/cmd-palette.mdx` new + `manifest.mdx` + navigation) + `skills/compozy/` + codegen co-ship
+- [ ] 7.10 Visual Contract evidence bundles VC-01..03 — capture remains in the accepted task_12 QA tail
 
 ## Implementation Details
 
@@ -122,19 +122,35 @@ Reference `_spec.md` Part II: Extensibility Integration Plan (the authoritative 
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-055, UT-056, UT-057, UT-058, UT-059, UT-060, UT-061, UT-062, UT-063 — manifest validation (ids, execution policy round-trip, tool refs, hostile strings, chord grammar), projection membership-vs-health, dev overlay/shadow, broken-reload last-good
-- [ ] UT-075, UT-076, UT-077 — ext-default tier: bind-when-free, deterministic dormant conflicts, disable/override persistence
-- [ ] IT-016 — enable/disable atomicity, collision rejection, dormant default with owner
-- [ ] IT-017 — health vs membership: crash loop keeps descriptors `available:false` + reason; recovery under new revision; trust reason; per-source degradation
-- [ ] IT-018 — dev overlay + watch reload + broken-edit diagnostics
-- [ ] IT-019 — Tier-1 extension view path: validated envelope, invalid-payload error frame, patch-stream fence resync
-- [ ] IT-023 — SSE invalidation on enable with revision convergence + registered event name
-- [ ] IT-024 — patch-stream replay guards (`after` without epoch → 400; epoch mismatch → resync)
-- [ ] E2E-016 — record/conflict/overwrite/alias/cheatsheet on the fixture (deferred from P4)
-- [ ] E2E-017 — disable mid-view: unavailable frame, pop, clean removal, re-enable with override intact
-- [ ] E2E-020 — second-client enable propagates via SSE to an open palette
-- [ ] E2E-021 — `extension dev` edit reflects live; broken manifest keeps last-good + logs
-- [ ] E2E-025 — CLI personalization + bind/alias parity transcripts (deferred from P4)
+- [x] UT-055, UT-056, UT-057, UT-058, UT-059, UT-060, UT-061, UT-062, UT-063 — manifest validation (ids, execution policy round-trip, tool refs, hostile strings, chord grammar), projection membership-vs-health, dev overlay/shadow, broken-reload last-good
+- [x] UT-075, UT-076, UT-077 — ext-default tier: bind-when-free, deterministic dormant conflicts, disable/override persistence
+- [x] IT-016 — enable/disable atomicity, collision rejection, dormant default with owner
+- [ ] IT-017 — real crash-loop/recovery and trust-reason walk is retained by `ET-extension-palette-contributions` for task_12; manager/catalog automated coverage is green
+- [x] IT-018 — dev overlay + reload + broken-edit diagnostics
+- [x] IT-019 — Tier-1 extension view path: validated fixture envelope plus shared invalid-payload and patch-fence suites
+- [ ] IT-023 — real SSE enable/revision-convergence walk is retained by `ET-extension-palette-contributions` for task_12; event registration and notifier coverage are green
+- [x] IT-024 — patch-stream replay guards (`after` without epoch → 400; epoch mismatch → resync)
+- [ ] E2E-016 — task_12 QA tail
+- [ ] E2E-017 — task_12 QA tail
+- [ ] E2E-020 — task_12 QA tail
+- [ ] E2E-021 — task_12 QA tail
+- [ ] E2E-025 — task_12 QA tail
+
+## Checkpoint
+
+Implementation is closed at the task checkpoint. The accepted loop exception keeps the flagged QA
+scenario, E2E walks, live SSE/crash-loop observations, and VC-01..03 bundles in task_12; this
+checkpoint does not claim real-user or visual parity before that tail runs.
+
+Verification evidence: `make gate` escalated to the full monorepo gate and passed at fingerprint
+`6ac860448ca26e07301dd0542d4a434de527b462`; log `.cache/gate/logs/full-1787177604.log`.
+
+Compozy Impact Audit:
+
+- Native tools: no new IDs or schemas — checked the existing `compozy__cmd_palette_list|invoke` descriptors, capability gates, and CLI fallbacks; extension contributions flow through their existing catalog contract.
+- Extensibility and hooks: added `resources.cmd_palette`, generated Go/TypeScript SDK contracts, build/validate/install/dev-reload enforcement, storage-free extension projection, declarative read-only views, extension shortcut defaults, docs, and the official Compozy skill. Hook events, MCP sidecars, bridge SDKs, and the ResourceKind registry are unchanged.
+- Workspace data isolation: manifest declarations are instance-owned; live commands, views, defaults, source health, catalog revisions, view calls, and dev overlays are projected per workspace. The daemon resolves workspace identity before catalog/view access, and the fixture integration proves enable/view/disable through public surfaces.
+- Official Compozy skill: `skills/compozy/SKILL.md` now routes command palette contribution authoring to `references/extension-authoring.md`, which documents the family, validation, shortcuts, health, dev reload, and structured inspection paths.
 
 ## Success Criteria
 

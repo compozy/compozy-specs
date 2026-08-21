@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P2 — Personalization, Single TS Scorer, Entity + Settings Search"
 type: backend
 complexity: high
@@ -48,16 +48,16 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_03/<
 
 ## Subtasks
 
-- [ ] 3.1 Fragment `44_cmd_palette.sql` + migration `00070` + sqlc queries + store wrappers (`global_db_cmd_palette*.go`) + delete-trigger cascade
-- [ ] 3.2 Daemon signal maintenance: `RecordUsage`/pins/reset on the registry, `DecayFrecency` with injected clock, tolerant prune, corruption degrade, `WeightsV1` (one versioned file)
-- [ ] 3.3 Frozen routes on both transports (`rank-signals`, `usage`, `pins`, `personalization`) + OpenAPI/TS + parity rows
-- [ ] 3.4 TS scorer module `web/src/systems/os/lib/ranking/`: match kinds (word-boundary/subsequence/diacritic folding), frecency + query-learning blend, deadband + transitivity, `assembleSections` with promotion floors + golden cross-fixtures pinned to `WeightsV1`
-- [ ] 3.5 Rank-signals client (session-memory only) + usage reporting wiring from the dispatch seam
-- [ ] 3.6 Empty-query surface (pins/recents/curated) + ghost autocomplete
-- [ ] 3.7 Entity search: per-domain adapters/sections over palette-open-gated queries (all list-bearing domains), settings-destination search, scope globe, caps/labels/errors
-- [ ] 3.8 CLI `cmd-palette personalization show|reset` + transcripts + generated docs
-- [ ] 3.9 IT-020: extend `migrate_streams_test.go` canonical suites for `00069` + `00070` incl. approval races + cascades
-- [ ] 3.10 Visual Contract evidence bundles VC-01..06
+- [x] 3.1 Fragment `44_cmd_palette.sql` + migration `00070` + sqlc queries + store wrappers (`global_db_cmd_palette*.go`) + delete-trigger cascade
+- [x] 3.2 Daemon signal maintenance: `RecordUsage`/pins/reset on the registry, `DecayFrecency` with injected clock, tolerant prune, corruption degrade, `WeightsV1` (one versioned file)
+- [x] 3.3 Frozen routes on both transports (`rank-signals`, `usage`, `pins`, `personalization`) + OpenAPI/TS + parity rows
+- [x] 3.4 TS scorer module `web/src/systems/os/lib/ranking/`: match kinds (word-boundary/subsequence/diacritic folding), frecency + query-learning blend, deadband + transitivity, `assembleSections` with promotion floors + golden cross-fixtures pinned to `WeightsV1`
+- [x] 3.5 Rank-signals client (session-memory only) + usage reporting wiring from the dispatch seam
+- [x] 3.6 Empty-query surface (pins/recents/curated) + ghost autocomplete
+- [x] 3.7 Entity search: per-domain adapters/sections over palette-open-gated queries (all list-bearing domains), settings-destination search, scope globe, caps/labels/errors
+- [x] 3.8 CLI `cmd-palette personalization show|reset` + transcripts + generated docs
+- [x] 3.9 IT-020: extend `migrate_streams_test.go` canonical suites for `00069` + `00070` incl. approval races + cascades
+- [ ] 3.10 Visual Contract evidence bundles VC-01..06 — deferred to task_12 by the accepted tail-only QA policy
 
 ## Implementation Details
 
@@ -125,16 +125,16 @@ Reference `_spec.md` Part II: Data Models (three tables + rationale), API Endpoi
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-020, UT-021, UT-022, UT-023, UT-024, UT-025, UT-026, UT-027, UT-028, UT-029, UT-030 — scorer: match kinds, folding, term-drop, alias-first, context boost, transitivity property, literal metacharacters, frecency decay, prune threshold, query learning, section assembly
-- [ ] UT-088, UT-089, UT-090, UT-091, UT-092, UT-093, UT-094 — store: upsert, tolerant prune, corruption degrade, workspace isolation, redaction recorder, idempotent pin, scoped reset
-- [ ] UT-110, UT-111, UT-112, UT-113, UT-114, UT-115, UT-116, UT-117, UT-118, UT-119 — search blend: gated queries, overlong query, vault type-level, caps + notes, wave merge/selection survival, section error, workspace labels, both-groups collision, ghost render/accept rules
-- [ ] IT-003 — scope preference round-trip across clients
-- [ ] IT-006 — usage → snapshot loop with injected clock (weights, recents order, pins)
-- [ ] IT-008 — password-arg command records query only (SQL-level)
-- [ ] IT-011 — corruption + workspace isolation
-- [ ] IT-012 — reset scoped to workspace
-- [ ] IT-020 — migrations `00069`+`00070` canonical suites + approval races + cascades
-- [ ] E2E-001, E2E-002, E2E-003, E2E-004, E2E-005, E2E-006, E2E-007 — operator journeys: ghost+chord, scale ordering, entity waves/errors/stale, globe cross-workspace landing, settings search, pins/recents/frecency, context boost re-evaluation
+- [x] UT-020, UT-021, UT-022, UT-023, UT-024, UT-025, UT-026, UT-027, UT-028, UT-029, UT-030 — scorer: match kinds, folding, term-drop, alias-first, context boost, transitivity property, literal metacharacters, frecency decay, prune threshold, query learning, section assembly
+- [x] UT-088, UT-089, UT-090, UT-091, UT-092, UT-093, UT-094 — store: upsert, tolerant prune, corruption degrade, workspace isolation, redaction recorder, idempotent pin, scoped reset
+- [x] UT-110, UT-111, UT-112, UT-113, UT-114, UT-115, UT-116, UT-117, UT-118, UT-119 — search blend: gated queries, overlong query, vault type-level, caps + notes, wave merge/selection survival, section error, workspace labels, both-groups collision, ghost render/accept rules
+- [x] IT-003 — scope preference round-trip across clients
+- [x] IT-006 — usage → snapshot loop with injected clock (weights, recents order, pins)
+- [x] IT-008 — password-arg command records query only (SQL-level)
+- [x] IT-011 — corruption + workspace isolation
+- [x] IT-012 — reset scoped to workspace
+- [x] IT-020 — migrations `00069`+`00070` canonical suites + approval races + cascades
+- [ ] E2E-001, E2E-002, E2E-003, E2E-004, E2E-005, E2E-006, E2E-007 — deferred to task_12 by the accepted tail-only QA policy
 
 ## Success Criteria
 

@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "QA Plan and Session Charters"
 type: qa-report
 complexity: high
@@ -23,11 +23,11 @@ Plans the real-user verification of the command-palette program on the living `d
 
 ## Subtasks
 
-- [ ] 11.1 Inventory every public surface from tasks 01–10 (verbs/routes/tools/keys/surfaces) against `_dx.md` and the task Completion Notes
-- [ ] 11.2 Reconcile + finalize the scenario set (entry_points per journey row; dedup; content-addressed ids)
-- [ ] 11.3 Update journey flowcharts in `docs/qa/journeys/`
-- [ ] 11.4 Select charters: invariant-targeted tier + adjacent canary journey; write `docs/qa/charters/`
-- [ ] 11.5 Verify every scenario file carries walkable steps + expected evidence for task_12
+- [x] 11.1 Inventory every public surface from tasks 01–10 (verbs/routes/tools/keys/surfaces) against `_dx.md` and the task Completion Notes
+- [x] 11.2 Reconcile + finalize the scenario set (entry_points per journey row; dedup; content-addressed ids)
+- [x] 11.3 Update journey flowcharts in `docs/qa/journeys/`
+- [x] 11.4 Select charters: invariant-targeted tier + adjacent canary journey; write `docs/qa/charters/`
+- [x] 11.5 Verify every scenario file carries walkable steps + expected evidence for task_12
 
 ## Implementation Details
 

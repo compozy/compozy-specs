@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P7 — Desktop Global Hotkeys: Preload Bridge, globalShortcut, Reconciler"
 type: desktop
 complexity: high
@@ -44,15 +44,15 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_09/<
 
 ## Subtasks
 
-- [ ] 9.1 `product-contract.ts` + `product-preload.ts` bridge (allowlist validator, boot-contract discipline) + build/packaging entries
-- [ ] 9.2 `desktop/src/shortcuts/` module: accelerator conversion table, `GlobalShortcutLike` DI, register/status/restore-previous/unregister policies, Accessibility detection
-- [ ] 9.3 `[window_manager.global_shortcuts]` config lifecycle (struct/defaults/validate/merge/clone/example/docs) + settings PATCH conflict semantics
-- [ ] 9.4 Daemon reconciliation: effective-set push over the client channel, per-shell-client registration-status storage, catalog + settings projection (intended vs registered)
-- [ ] 9.5 CLI `bind|unbind --global` extension + transcripts + structured errors
-- [ ] 9.6 Summon path: `shell:summon` → palette overlay + window focus/restore; modal + argument-mode variants
-- [ ] 9.7 S12 global section states + browser-mode gating + `global_hotkey.registration_failed` event
-- [ ] 9.8 `_electron` E2E specs in `desktop/e2e/_electron/__tests__/` (summon, args-mode hotkey, failure surface, browser-mode) + docs page `packages/site/content/docs/desktop/global-hotkeys.mdx` (new) + `configuration/shortcuts.mdx` cross-link
-- [ ] 9.9 Visual Contract evidence bundles VC-01..03
+- [x] 9.1 `product-contract.ts` + `product-preload.ts` bridge (allowlist validator, boot-contract discipline) + build/packaging entries
+- [x] 9.2 `desktop/src/shortcuts/` module: accelerator conversion table, `GlobalShortcutLike` DI, register/status/restore-previous/unregister policies, Accessibility detection
+- [x] 9.3 `[window_manager.global_shortcuts]` config lifecycle (struct/defaults/validate/merge/clone/example/docs) + settings PATCH conflict semantics
+- [x] 9.4 Daemon reconciliation: effective-set push over the client channel, per-shell-client registration-status storage, catalog + settings projection (intended vs registered)
+- [x] 9.5 CLI `bind|unbind --global` extension + transcripts + structured errors
+- [x] 9.6 Summon path: `shell:summon` → palette overlay + window focus/restore; modal + argument-mode variants
+- [x] 9.7 S12 global section states + browser-mode gating + `global_hotkey.registration_failed` event
+- [x] 9.8 `_electron` E2E specs in `desktop/e2e/_electron/__tests__/` (summon, args-mode hotkey, failure surface, browser-mode) + docs page `packages/site/content/docs/desktop/global-hotkeys.mdx` (new) + `configuration/shortcuts.mdx` cross-link
+- [ ] 9.9 Visual Contract evidence bundles VC-01..03 — capture remains in the accepted task_12 QA tail
 
 ## Implementation Details
 
@@ -119,15 +119,15 @@ Reference `_spec.md` Part II: Integration Points (Electron shell + global-hotkey
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-155 — chord→accelerator conversion table incl. typed unconvertible error
-- [ ] UT-156 — sync policy: failed registration → `failed_in_use` + restore-previous; quit unregisters all
-- [ ] UT-157 — Accessibility detection → `failed_permission` + deep-link payload
-- [ ] UT-158 — bridge contract validator (allowlist + params; unknown method rejected)
-- [ ] UT-150 — settings global section states (browser-mode reason; in-use with previous binding effective)
-- [ ] E2E-027 — global summon focuses/restores with palette open; modal variant
-- [ ] E2E-028 — argument-command global hotkey → summon in argument mode
-- [ ] E2E-029 — registration failure surface + previous binding works + relaunch re-registers/re-reports
-- [ ] E2E-030 — browser mode: global settings disabled-with-reason; in-app ⌘K unaffected
+- [x] UT-155 — chord→accelerator conversion table incl. typed unconvertible error
+- [x] UT-156 — sync policy: failed registration → `failed_in_use` + restore-previous; quit unregisters all
+- [x] UT-157 — Accessibility detection → `failed_permission` + deep-link payload
+- [x] UT-158 — bridge contract validator (allowlist + params; unknown method rejected)
+- [x] UT-150 — settings global section states (browser-mode reason; in-use with previous binding effective)
+- [ ] E2E-027 — global summon focuses/restores with palette open; modal variant — authored; execution remains in task_12
+- [ ] E2E-028 — argument-command global hotkey → summon in argument mode — authored; execution remains in task_12
+- [ ] E2E-029 — registration failure surface + previous binding works + relaunch re-registers/re-reports — authored; execution remains in task_12
+- [ ] E2E-030 — browser mode: global settings disabled-with-reason; in-app ⌘K unaffected — authored; execution remains in task_12
 
 ## Success Criteria
 

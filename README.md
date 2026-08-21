@@ -14,8 +14,11 @@ Specs whose work is still open. They sit at the root.
 
 | Spec | What it covers | Documents |
 | --- | --- | --- |
+| [2026-08-20-skill-sources](2026-08-20-skill-sources/) | Skill Sources: absorb ecosystem folder conventions (`.agents/skills` and friends) and expose Compozy skills back. [Tracking](https://github.com/compozy/compozy/issues/379) | `spec` |
+| [2026-08-19-agent-comms](2026-08-19-agent-comms/) | Agent Comms: typed calls, mailbox, and subagents on the existing agent registry. [Tracking](https://github.com/compozy/compozy/issues/448) | `spec` |
+| [2026-08-19-loop-task-legibility](2026-08-19-loop-task-legibility/) | Loop & Task Legibility: calm task listings, two-register run page, terminal settlement. [Tracking](https://github.com/compozy/compozy/issues/449) | `spec` |
+| [2026-08-19-profiles](2026-08-19-profiles/) | Profiles: named working contexts with scoped listings, layered resources, and shareable divisions. [Tracking](https://github.com/compozy/compozy/issues/380) | `spec` |
 | [2026-08-17-command-palette](2026-08-17-command-palette/) | Command Palette OS-grade overhaul: one command registry behind the palette, keyboard system, menubar, and agent control plane. [Tracking](https://github.com/compozy/compozy/issues/425) | `spec` |
-| [2026-08-15-graph-eng](2026-08-15-graph-eng/) | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
 
 ## Archived
 
@@ -26,6 +29,7 @@ Specs whose workstream is closed. They live under [`_archived/`](_archived/), ne
 | [2026-08-16-herdr-parity](_archived/2026-08-16-herdr-parity/) | Session attention: telling at a glance which of many concurrent sessions needs you, with a real notification path | `spec` |
 | [2026-08-16-electron-shell](_archived/2026-08-16-electron-shell/) | Moving the desktop shell from Tauri's OS webview to Chromium, so every surface runs the same engine | `spec` |
 | [2026-08-16-agent-plugins](_archived/2026-08-16-agent-plugins/) | Ingesting the portable [Agent Plugins 1.0.0](https://agent-plugins.org/) package format as extensions. [Tracking](https://github.com/compozy/compozy/issues/383) | `spec` |
+| [2026-08-15-graph-eng](_archived/2026-08-15-graph-eng/) | Loop Graph Completion: human interaction beyond approval, exclusive routing, fan-out completion strategies, operator time travel. [Tracking](https://github.com/compozy/compozy/issues/376) | `spec` |
 | [2026-08-12-worktree-support](_archived/2026-08-12-worktree-support/) | Native git worktrees so parallel agents stop overwriting each other's uncommitted state | `prd + techspec` |
 | [2026-08-10-desktop-app](_archived/2026-08-10-desktop-app/) | Shipping CompozyOS as a real desktop app instead of one more browser tab | `brief + prd + techspec` |
 | [2026-08-06-remote-gateway](_archived/2026-08-06-remote-gateway/) | Unlocking the daemon from its machine: remote auth, inbound events, bridge delivery without self-hosted proxies | `prd + techspec` |
