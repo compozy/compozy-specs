@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P3 — Execution UX: Action Panel, Inline Args, Confirmation, Feedback"
 type: frontend
 complexity: medium
@@ -49,15 +49,15 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_04/<
 
 ## Subtasks
 
-- [ ] 4.1 `PaletteActionPanel` + `PaletteActionPanelItem`: registration model per row kind, filter, sections, chord badges, primary marking
-- [ ] 4.2 Meta-actions on every command row (pins route wiring; settings deep-links) + entity domain actions with destructive styling
-- [ ] 4.3 Panel guards: vanished-row auto-close + nearest-neighbor, disabled-row meta-only, capture-phase shortcut dispatch + repeat guard
-- [ ] 4.4 `PaletteArgsBar`: field morphing, traversal, dropdown popover, validation messages, Esc restore, hotkey-entry argument mode
-- [ ] 4.5 Password argument handling: masking, exclusion from echo/history, clear-on-exit
-- [ ] 4.6 `PaletteConfirmation`: declared copy render, Cancel focus, repeat guard, target-invalidation message
-- [ ] 4.7 Feedback lifecycle on the seam: pending affordance, completion/failure toasts (surviving unmount), retry gating by `RetrySafe`, `already_running`, cross-workspace notice
-- [ ] 4.8 Esc-ladder + a11y integration across the three new surfaces; stories for every VC state
-- [ ] 4.9 Visual Contract evidence bundles VC-01..10
+- [x] 4.1 `PaletteActionPanel` + `PaletteActionPanelItem`: registration model per row kind, filter, sections, chord badges, primary marking
+- [x] 4.2 Meta-actions on every command row (pins route wiring; settings deep-links) + entity domain actions with destructive styling
+- [x] 4.3 Panel guards: vanished-row auto-close + nearest-neighbor, disabled-row meta-only, capture-phase shortcut dispatch + repeat guard
+- [x] 4.4 `PaletteArgsBar`: field morphing, traversal, dropdown popover, validation messages, Esc restore, hotkey-entry argument mode
+- [x] 4.5 Password argument handling: masking, exclusion from echo/history, clear-on-exit
+- [x] 4.6 `PaletteConfirmation`: declared copy render, Cancel focus, repeat guard, target-invalidation message
+- [x] 4.7 Feedback lifecycle on the seam: pending affordance, completion/failure toasts (surviving unmount), retry gating by `RetrySafe`, `already_running`, cross-workspace notice
+- [x] 4.8 Esc-ladder + a11y integration across the three new surfaces; stories for every VC state
+- [ ] 4.9 Visual Contract evidence bundles VC-01..10 — deferred to task_12 by the accepted tail-only QA policy
 
 ## Implementation Details
 
@@ -117,11 +117,11 @@ Reference `_spec.md` Part II: System Architecture (story→component map US-014.
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-120, UT-121, UT-122 — args morphing/traversal/execute, blocking + Esc restore + paste validation, hotkey-entry argument mode
-- [ ] UT-123, UT-124 — confirmation render/Cancel focus/Esc, repeat guard + target invalidation
-- [ ] UT-125, UT-126, UT-127, UT-128, UT-129 — panel open/filter/close, meta-actions + domain actions, vanished-row close, disabled-row meta-only, capture-phase + repeat guard
-- [ ] UT-159, UT-160 — feedback: sync close-and-show, async pending→toast, cross-workspace naming; failure toast + retry gating
-- [ ] E2E-014 — slow async fixture: pending → close → completion toast survives unmount; failure variant offers retry
+- [x] UT-120, UT-121, UT-122 — args morphing/traversal/execute, blocking + Esc restore + paste validation, hotkey-entry argument mode
+- [x] UT-123, UT-124 — confirmation render/Cancel focus/Esc, repeat guard + target invalidation
+- [x] UT-125, UT-126, UT-127, UT-128, UT-129 — panel open/filter/close, meta-actions + domain actions, vanished-row close, disabled-row meta-only, capture-phase + repeat guard
+- [x] UT-159, UT-160 — feedback: sync close-and-show, async pending→toast, cross-workspace naming; failure toast + retry gating
+- [ ] E2E-014 — deferred to task_12 by the accepted tail-only QA policy
 
 ## Success Criteria
 

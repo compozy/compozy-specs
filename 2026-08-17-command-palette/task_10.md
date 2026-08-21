@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P8 — NL Fallback, Event Matrix, Integration Close"
 type: backend
 complexity: medium
@@ -45,14 +45,14 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_10/<
 
 ## Subtasks
 
-- [ ] 10.1 `PaletteFallbackRow` + weak/zero-match assembly against the served threshold (boundary-pinned)
-- [ ] 10.2 ⏎ → session spawn integration (default agent resolution, picker path, failure toast + query preservation, repeat guard) with the nothing-pre-sends spy contract
-- [ ] 10.3 S15 completion: fallback toggle wired to `SectionCmdPalette` + behavior; reset flow with scope confirmation
-- [ ] 10.4 UT-151 closure: cheatsheet source grouping + multi-chord rules with extension bindings
-- [ ] 10.5 IT-033 event-matrix test + any missing registration/emission across the family
-- [ ] 10.6 IT-015: settings section integration (both toggles, Live, config echo, 422)
-- [ ] 10.7 Polish sweep: BR-8 reason parity spot-audit, delete-target `rg` sweep, settings-affected check, docs cross-links
-- [ ] 10.8 QA tracker flags: mint/reset every scenario listed in requirement 7 (content-addressed, deduped) — walks stay with task_12
+- [x] 10.1 `PaletteFallbackRow` + weak/zero-match assembly against the served threshold (boundary-pinned)
+- [x] 10.2 ⏎ → session spawn integration (default agent resolution, picker path, failure toast + query preservation, repeat guard) with the nothing-pre-sends spy contract
+- [x] 10.3 S15 completion: fallback toggle wired to `SectionCmdPalette` + behavior; reset flow with scope confirmation
+- [x] 10.4 UT-151 closure: cheatsheet source grouping + multi-chord rules with extension bindings
+- [x] 10.5 IT-033 event-matrix test + any missing registration/emission across the family
+- [x] 10.6 IT-015: settings section integration (both toggles, Live, config echo, 422)
+- [x] 10.7 Polish sweep: BR-8 reason parity spot-audit, delete-target `rg` sweep, settings-affected check, docs cross-links
+- [x] 10.8 QA tracker flags: mint/reset every scenario listed in requirement 7 (content-addressed, deduped) — walks stay with task_12
 - [ ] 10.9 Visual Contract evidence bundles VC-01..05
 
 ## Implementation Details
@@ -116,11 +116,17 @@ Reference `_spec.md` Part II: story→component map US-026, Monitoring and Obser
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-140, UT-141, UT-142, UT-143, UT-144 — zero/weak-match assembly + threshold boundary, pre-send spy, no-default-agent picker, spawn-failure preservation, repeat guard vs deliberate repeats
-- [ ] UT-151 — cheatsheet source grouping + multi-chord rules; fallback toggle off → no row; reset with scope confirmation
-- [ ] IT-015 — settings section: both toggles Live, config echo, 422 unknown target
-- [ ] IT-033 — canonical event matrix with correlation fields; no keystroke/patch events
+- [x] UT-140, UT-141, UT-142, UT-143, UT-144 — zero/weak-match assembly + threshold boundary, pre-send spy, no-default-agent picker, spawn-failure preservation, repeat guard vs deliberate repeats
+- [x] UT-151 — cheatsheet source grouping + multi-chord rules; fallback toggle off → no row; reset with scope confirmation
+- [x] IT-015 — settings section: both toggles Live, config echo, 422 unknown target
+- [x] IT-033 — canonical event matrix with correlation fields; no keystroke/patch events
 - [ ] E2E-013 — gibberish → fallback-only → ⏎ → session with query as first prompt; no-default-agent picker variant
+
+## Deferred Tail Evidence
+
+The accepted loop boundary moves VC-01..05 capture and E2E-013 execution to Task 12 and the
+workflow tail. Task 10 closes the implementation, focused checks, and QA flags without claiming
+visual or end-to-end PASS early.
 
 ## Success Criteria
 

@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P5 — View System: Vocabulary, Patch Engine, Four Kinds, Domain Views"
 type: backend
 complexity: high
@@ -52,16 +52,16 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_06/<
 
 ## Subtasks
 
-- [ ] 6.1 Vocabulary structs + validation + caps + requires/fallback + Effect union (`internal/cmdpalette/view*.go`, file split up front) + generated TS + round-trip fixtures
-- [ ] 6.2 Patch engine: fence check, resync trigger, application property tests
-- [ ] 6.3 `ViewService.ResolveView`/`OpenSource` (Tier-1 read-only source resolution; validate-time read-only risk class enforcement lands with the manifest in task_07 — the service enforces it at open here)
-- [ ] 6.4 Tier-1 routes + patch stream (epoch guard) on both transports + OpenAPI/TS + parity rows
-- [ ] 6.5 Shell generalization: kind-dispatched bodies under one chrome; unavailable/loading/timeout frames; registry-driven view resolution completes
-- [ ] 6.6 `PaletteDetailPane`, `PaletteFormView`, `PaletteGridView` renderers + sanitization + virtualization
-- [ ] 6.7 Domain-view template (generalized Sessions grammar) + per-domain chip sets/rows for every list-bearing domain
-- [ ] 6.8 Form-submit → command-action dispatch (IT-005 seeded provider path)
-- [ ] 6.9 Docs: view kinds on the owning palette docs page; stories for every VC state
-- [ ] 6.10 Visual Contract evidence bundles VC-01..12
+- [x] 6.1 Vocabulary structs + validation + caps + requires/fallback + Effect union (`internal/cmdpalette/view*.go`, file split up front) + generated TS + round-trip fixtures
+- [x] 6.2 Patch engine: fence check, resync trigger, application property tests
+- [x] 6.3 `ViewService.ResolveView`/`OpenSource` (Tier-1 read-only source resolution; validate-time read-only risk class enforcement lands with the manifest in task_07 — the service enforces it at open here)
+- [x] 6.4 Tier-1 routes + patch stream (epoch guard) on both transports + OpenAPI/TS + parity rows
+- [x] 6.5 Shell generalization: kind-dispatched bodies under one chrome; unavailable/loading/timeout frames; registry-driven view resolution completes
+- [x] 6.6 `PaletteDetailPane`, `PaletteFormView`, `PaletteGridView` renderers + sanitization + virtualization
+- [x] 6.7 Domain-view template (generalized Sessions grammar) + per-domain chip sets/rows for every list-bearing domain
+- [x] 6.8 Form-submit → command-action dispatch (IT-005 seeded provider path)
+- [x] 6.9 Generated API docs and stories for every VC state; the extension-facing owning page is created and completed in task_07
+- [ ] 6.10 Visual Contract evidence bundles VC-01..12 — deferred to the task_12 QA walk by the accepted loop plan
 
 ## Implementation Details
 
@@ -126,14 +126,25 @@ Reference `_spec.md` Part II: Core Interfaces (vocabulary + `ViewService`), API 
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-040, UT-041, UT-042, UT-043, UT-044, UT-045, UT-046 — round-trip validate, wire caps/truncation, requires/fallback + telemetry, path-naming schema errors, unknown-kind honesty, patch fencing
-- [ ] UT-130, UT-131, UT-132, UT-133, UT-134, UT-135, UT-136, UT-137, UT-138, UT-139 — four kinds under one chrome, unavailable/slow frames, breadcrumb depth, domain template + tone parity, empty/cold states, detail pane, sanitized markdown rendering, form happy/error, submit-failure preservation + password, grid nav/media/empty
-- [ ] IT-005 — form-declared command submit → tool invocation with mapped args (seeded provider)
-- [ ] E2E-008 — stack semantics across kinds (push/pop/Esc/reopen)
-- [ ] E2E-009 — tasks domain view: truthful counts, honest empty, one-keystroke clear
-- [ ] E2E-010 — detail pane + action panel on entity rows (panel from task_04)
-- [ ] E2E-011 — inline args + form-view variant preserving values on downstream failure
-- [ ] E2E-012 — marketplace grid: 2D nav, placeholder, ⏎ parity
+- [x] UT-040, UT-041, UT-042, UT-043, UT-044, UT-045, UT-046 — round-trip validate, wire caps/truncation, requires/fallback + telemetry, path-naming schema errors, unknown-kind honesty, patch fencing
+- [x] UT-130, UT-131, UT-132, UT-133, UT-134, UT-135, UT-136, UT-137, UT-138, UT-139 — four kinds under one chrome, unavailable/slow frames, breadcrumb depth, domain template + tone parity, empty/cold states, detail pane, sanitized markdown rendering, form happy/error, submit-failure preservation + password, grid nav/media/empty
+- [x] IT-005 — form-declared command submit → tool invocation with mapped args (seeded provider)
+- [ ] E2E-008 — stack semantics across kinds (push/pop/Esc/reopen) — execution deferred to task_12
+- [ ] E2E-009 — tasks domain view: truthful counts, honest empty, one-keystroke clear — implemented; real walk deferred to task_12
+- [ ] E2E-010 — detail pane + action panel on entity rows (panel from task_04) — execution deferred to task_12
+- [ ] E2E-011 — inline args + form-view variant preserving values on downstream failure — execution deferred to task_12
+- [ ] E2E-012 — marketplace grid: 2D nav, placeholder, ⏎ parity — execution deferred to task_12
+
+## Checkpoint
+
+Implementation closed with a current full-gate record (`a3ecfb4aeb12bee995024f4d3f67900ac8b64056`). The loop exception keeps the flagged QA scenarios, E2E walks, and VC-01..12 capture in task_12; this checkpoint does not claim visual parity before those real walks run.
+
+Compozy Impact Audit:
+
+- Native tools: no impact — checked `internal/tools`, `internal/toolmeta`, native tool IDs, descriptors, schema digests, risk flags, and capability gates; the new read surfaces are HTTP/UDS view routes, not `compozy__*` tools.
+- Extensibility and hooks: added the shared `ViewService`, frozen view vocabulary, read-only source enforcement, capability fallback, and Tier-1 HTTP/UDS routes. Manifest projection, extension lifecycle, MCP/bridge SDK exposure, and the official extension docs intentionally complete in task_07 against this contract; no hook event or config key changed here.
+- Workspace data isolation: view descriptors are global definitions; opened payloads, revisions, streams, caches, and patch events are workspace-scoped. `workspace_id` is resolved canonically before service access on HTTP and UDS, and live parity tests prove no caller-supplied workspace can bypass that boundary.
+- Official Compozy skill: no standalone update in this slice — `skills/compozy/` has no Tier-1 view operation until the extension manifest family exists; task_07 owns the combined extension palette entry so the skill never documents an unusable half-contract.
 
 ## Success Criteria
 

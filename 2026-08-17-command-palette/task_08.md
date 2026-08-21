@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P6b — View Programs: view.provider Runtime, TS SDK, React Kit"
 type: backend
 complexity: critical
@@ -49,18 +49,18 @@ Evidence for each row: `.compozy/tasks/command-palette/evidence/visual/task_08/<
 
 ## Subtasks
 
-- [ ] 8.1 Capability + protocol: `view.provider` entry, service methods, `make codegen` propagation, DescribePayload view metadata, initialize advertisement
-- [ ] 8.2 Subprocess protocol additions (cancel frames, per-request ctx/AbortSignal, negotiated timeout, rate class, in-flight caps) across daemon transport + Go SDK + TS SDK, with conformance coverage
-- [ ] 8.3 `internal/extension/view_source.go` service caller (standard gate) + `ViewService` session runtime in `internal/cmdpalette` (registry, generations, admission, caps, teardown, instance invalidation)
-- [ ] 8.4 `view/patch` host-API method (catalog + handler + permission + rate) + session-scoped SSE fan-out
-- [ ] 8.5 View-session routes on both transports (open/stream/events/close per `_dx.md` status codes) + OpenAPI/TS + parity rows
-- [ ] 8.6 Web host runtime on the task_06 shell: event counters, quarantine, bands, circuit-break, `complete:true` local filter, effect ack loop
-- [ ] 8.7 `sdk/typescript`: `view-provider.ts` + session registry + `AbortSignal`; scaffold template `view-provider-ts`
-- [ ] 8.8 `sdk/react` package: kit components/hooks + persistent-mode reconciler + patch batching/dedupe + starvation guard + full workspace/gate/lint wiring
-- [ ] 8.9 TypeScript fixture extension (browser view + slow/crash modes) + program-specific validation (Go-toolchain rejection, describe-coverage)
-- [ ] 8.10 Precise `execute_hook` daemon-request seam deletion (direction-verified) — no dual seams
-- [ ] 8.11 Docs (develop.mdx View providers, React-kit authoring, glossary `view.provider`) + `skills/compozy/`
-- [ ] 8.12 Visual Contract evidence bundles VC-01..05
+- [x] 8.1 Capability + protocol: `view.provider` entry, service methods, `make codegen` propagation, DescribePayload view metadata, initialize advertisement
+- [x] 8.2 Subprocess protocol additions (cancel frames, per-request ctx/AbortSignal, negotiated timeout, rate class, in-flight caps) across daemon transport + Go SDK + TS SDK, with conformance coverage
+- [x] 8.3 `internal/extension/view_source.go` service caller (standard gate) + `ViewService` session runtime in `internal/cmdpalette` (registry, generations, admission, caps, teardown, instance invalidation)
+- [x] 8.4 `view/patch` host-API method (catalog + handler + permission + rate) + session-scoped SSE fan-out
+- [x] 8.5 View-session routes on both transports (open/stream/events/close per `_dx.md` status codes) + OpenAPI/TS + parity rows
+- [x] 8.6 Web host runtime on the task_06 shell: event counters, quarantine, bands, circuit-break, `complete:true` local filter, effect ack loop
+- [x] 8.7 `sdk/typescript`: `view-provider.ts` + session registry + `AbortSignal`; scaffold template `view-provider-ts`
+- [x] 8.8 `sdk/react` package: kit components/hooks + persistent-mode reconciler + patch batching/dedupe + starvation guard + full workspace/gate/lint wiring
+- [x] 8.9 TypeScript fixture extension (browser view + slow/crash modes) + program-specific validation (Go-toolchain rejection, describe-coverage)
+- [x] 8.10 Precise `execute_hook` daemon-request seam deletion (direction-verified) — no dual seams
+- [x] 8.11 Docs (develop.mdx View providers, React-kit authoring, glossary `view.provider`) + `skills/compozy/`
+- [ ] 8.12 Visual Contract evidence bundles VC-01..05 — capture remains in the accepted task_12 QA tail
 
 ## Implementation Details
 
@@ -130,17 +130,17 @@ Reference `_spec.md` Part II: Core Interfaces (`ViewService`, `ViewOpenRequest`/
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-161, UT-162, UT-163, UT-164, UT-165, UT-166, UT-167, UT-168 — gate parity, session registry ownership/teardown/generation-bump, event counters + `complete:true`, quarantine, degradation state machine with live shell, push fencing, program validation matrix, band budgets with injected clock
-- [ ] UT-173 — event admission: supersession cancel + late-frame discard + causal-generation rejection of stale pushes + action-event caps + post-close disposal
-- [ ] UT-169, UT-170, UT-171, UT-172 — React kit: NotesBrowser → valid frame, handler-id stability across re-renders, one patch per tick + dedupe + round-trip property, starvation warning + AbortSignal propagation
-- [ ] IT-026 — full loop: open (identity-bound) → events → session-scoped patches → at-most-once effects on resync → close → no orphans → foreign-token rejection
-- [ ] IT-027 — crash + supervisor restart: invalidation, stale-session rejection, fresh reopen
-- [ ] IT-028 — slow program: degraded marker, circuit-break, per-view isolation
-- [ ] IT-029 — two clients: independent sessions, no cross-stream frames
-- [ ] IT-030 — validate matrix: Go `program:true` exact message; TS missing `view/close` describe-coverage
-- [ ] E2E-031 — instant typing + chips + push/pop + form submit + destructive confirm on the fixture
-- [ ] E2E-032 — bands walk: busy → degraded → circuit-break with shell + sibling views live; crash variant
-- [ ] E2E-033 — dev edit → "view reloaded" → next open runs new code
+- [x] UT-161, UT-162, UT-163, UT-164, UT-165, UT-166, UT-167, UT-168 — gate parity, session registry ownership/teardown/generation-bump, event counters + `complete:true`, quarantine, degradation state machine with live shell, push fencing, program validation matrix, band budgets with injected clock
+- [x] UT-173 — event admission: supersession cancel + late-frame discard + causal-generation rejection of stale pushes + action-event caps + post-close disposal
+- [x] UT-169, UT-170, UT-171, UT-172 — React kit: NotesBrowser → valid frame, handler-id stability across re-renders, one patch per tick + dedupe + round-trip property, starvation warning + AbortSignal propagation
+- [x] IT-026 — full loop: open (identity-bound) → events → session-scoped patches → at-most-once effects on resync → close → no orphans → foreign-token rejection
+- [x] IT-027 — crash + supervisor restart: invalidation, stale-session rejection, fresh reopen
+- [x] IT-028 — slow program: degraded marker, circuit-break, per-view isolation
+- [x] IT-029 — two clients: independent sessions, no cross-stream frames
+- [x] IT-030 — validate matrix: Go `program:true` exact message; TS missing `view/close` describe-coverage
+- [ ] E2E-031 — instant typing + chips + push/pop + form submit + destructive confirm on the fixture — walk remains in task_12
+- [ ] E2E-032 — bands walk: busy → degraded → circuit-break with shell + sibling views live; crash variant — walk remains in task_12
+- [ ] E2E-033 — dev edit → "view reloaded" → next open runs new code — walk remains in task_12
 
 ## Success Criteria
 

@@ -546,7 +546,8 @@ GET  /api/settings/cmd-palette  → 200 { "fallback_agent_enabled": true, "perso
 PATCH /api/settings/cmd-palette { "fallback_agent_enabled": false } → 200 (same shape) · 422 invalid value
 
 // Declarative (Tier-1) view + live refresh
-GET /api/cmd-palette/views/ext.notes.recent?workspace=acme     → 200 ViewPayload
+GET /api/cmd-palette/views/ext.notes.recent?workspace=acme
+    → 200 CmdPaletteViewEnvelope { view_id, title, kind, revision, stream_epoch, payload: ViewPayload }
 GET /api/cmd-palette/views/ext.notes.recent/stream?workspace=&after=&stream_epoch=
     → SSE of revision-fenced patches · 400 when after>0 without stream_epoch · full resync on fence mismatch
 

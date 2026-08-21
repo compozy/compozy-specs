@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 title: "P1 Daemon — Unified Registry, Approval Substrate, Agent Surface"
 type: backend
 complexity: critical
@@ -36,18 +36,18 @@ Builds the daemon-canonical command registry (`internal/cmdpalette` + `corecmds`
 
 ## Subtasks
 
-- [ ] 1.1 `internal/cmdpalette` domain types + validation (descriptor/action/policy/predicate; file split decided up front: types, validation, registry, catalog, invoke)
-- [ ] 1.2 `internal/cmdpalette/corecmds` — full core absorption (WM actions, apps, settings destinations, view entries) with boot-time uniqueness
-- [ ] 1.3 Context-key contract v1 (closed set per Assumptions) + daemon-side predicate evaluator resolving against a named client's snapshot
-- [ ] 1.4 Windowmanager client registry extension: `kind`, volatile context snapshot + debounced refresh, attachment token mint/validate, `client_command` envelopes (Go const/struct + readPump + ack/result + web Zod branch co-ship)
-- [ ] 1.5 Approval substrate: `ApprovalCoordinator` + `tool_approval_pending` (fragment 43 → migration `00069`, sqlc queries, store wrapper, delete-trigger), fence, boot recovery, `cannot_defer_secrets`
-- [ ] 1.6 Approvals public surface: status/cancel routes (both transports) + CLI `compozy approvals show|cancel` + native parity
-- [ ] 1.7 Invoke orchestration: schema validation (422 fields) → targeting → availability re-eval (412 with catalog-identical reason) → single-flight (409) → route by action kind (tool via `internal/tools` policy; client ops over the client channel)
-- [ ] 1.8 API family: `internal/api/core/cmd_palette*.go` handlers + port interface on `BaseHandlers`, `cmd_palette_routes.go` on httpapi + udsapi, OpenAPI registry, SSE stream
-- [ ] 1.9 CLI `compozy cmd-palette list|inspect|invoke|clients` (family files + output bundle + structured errors per transcripts)
-- [ ] 1.10 Native tools: `builtin_ids_cmd_palette.go` + `builtin/cmd_palette.go` descriptors/schemas + toolset + catalog regen
-- [ ] 1.11 Events + observability: family registration, `command.invoked` correlation fields, slog fields, failure counters
-- [ ] 1.12 Co-ship: `make codegen` artifacts, transport-parity rows, `skills/compozy/`, glossary entry, docs pages; wire everything in `internal/daemon/boot_resource_graph.go`
+- [x] 1.1 `internal/cmdpalette` domain types + validation (descriptor/action/policy/predicate; file split decided up front: types, validation, registry, catalog, invoke)
+- [x] 1.2 `internal/cmdpalette/corecmds` — full core absorption (WM actions, apps, settings destinations, view entries) with boot-time uniqueness
+- [x] 1.3 Context-key contract v1 (closed set per Assumptions) + daemon-side predicate evaluator resolving against a named client's snapshot
+- [x] 1.4 Windowmanager client registry extension: `kind`, volatile context snapshot + debounced refresh, attachment token mint/validate, `client_command` envelopes (Go const/struct + readPump + ack/result + web Zod branch co-ship)
+- [x] 1.5 Approval substrate: `ApprovalCoordinator` + `tool_approval_pending` (fragment 43 → migration `00069`, sqlc queries, store wrapper, delete-trigger), fence, boot recovery, `cannot_defer_secrets`
+- [x] 1.6 Approvals public surface: status/cancel routes (both transports) + CLI `compozy approvals show|cancel` + native parity
+- [x] 1.7 Invoke orchestration: schema validation (422 fields) → targeting → availability re-eval (412 with catalog-identical reason) → single-flight (409) → route by action kind (tool via `internal/tools` policy; client ops over the client channel)
+- [x] 1.8 API family: `internal/api/core/cmd_palette*.go` handlers + port interface on `BaseHandlers`, `cmd_palette_routes.go` on httpapi + udsapi, OpenAPI registry, SSE stream
+- [x] 1.9 CLI `compozy cmd-palette list|inspect|invoke|clients` (family files + output bundle + structured errors per transcripts)
+- [x] 1.10 Native tools: `builtin_ids_cmd_palette.go` + `builtin/cmd_palette.go` descriptors/schemas + toolset + catalog regen
+- [x] 1.11 Events + observability: family registration, `command.invoked` correlation fields, slog fields, failure counters
+- [x] 1.12 Co-ship: `make codegen` artifacts, transport-parity rows, `skills/compozy/`, glossary entry, docs pages; wire everything in `internal/daemon/boot_resource_graph.go`
 
 ## Implementation Details
 
@@ -89,7 +89,7 @@ Reference `_spec.md` Part II: Core Interfaces (descriptor/registry/approval bloc
 
 ### Competitor References
 
-- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `~/dev/compozy-code` — not vendored under `.resources/`): descriptor contract `packages/tauri/src/app-core/shared/commander.ts` — the serializable handler-free descriptor keystone.
+- Legacy commander (cited by path in `analysis/01_legacy_commander.md`; repo `/Users/pedronauck/Dev/compozy/compozy-code` — not vendored under `.resources/`): descriptor contract `packages/tauri/src/app-core/shared/commander.ts` — the serializable handler-free descriptor keystone.
 
 ### Related ADRs
 
@@ -123,19 +123,19 @@ Reference `_spec.md` Part II: Core Interfaces (descriptor/registry/approval bloc
 
 Cases assigned from `_tests.md` — read each ID's full definition there before writing tests.
 
-- [ ] UT-001, UT-002, UT-003, UT-004, UT-005 — catalog assembly, absorption count, structural revision vs `context_revision`, duplicate-id rejection, degraded sources
-- [ ] UT-006, UT-007, UT-008, UT-009, UT-010 — invoke availability/args/unknown-id/single-flight-per-policy-class/approval-pending
-- [ ] UT-011 — native-tool list ↔ catalog parity
-- [ ] UT-012 — settings-destination descriptors cover the route inventory
-- [ ] IT-001 — commands GET with seeded providers + jsonl completeness at scale
-- [ ] IT-007 — invoke with inline args → tool result envelope
-- [ ] IT-009 — invoke policy matrix (404/422/412/202 + denial without side effect)
-- [ ] IT-010 — single-flight + failure + approval-lifetime races (409 while pending; deny/timeout release; late approval resolves exactly once)
-- [ ] IT-021 — native-tool catalog contract + approval gate honored
-- [ ] IT-022 — transport parity for every new route
-- [ ] IT-031 — two clients: divergent availability, targeting rules, forged-token rejection, control-plane targeting without token, identical structural revision
-- [ ] IT-032 — workspace resolution matrix (ID/name/path/cwd) + two-workspace isolation across CLI/HTTP/UDS/native
-- [ ] E2E-022, E2E-023, E2E-024, E2E-026 — agent journeys via Go harness/UDS using `_dx.md` transcripts verbatim (list, invoke + errors, approval approve/deny, native-tool parity)
+- [x] UT-001, UT-002, UT-003, UT-004, UT-005 — catalog assembly, absorption count, structural revision vs `context_revision`, duplicate-id rejection, degraded sources
+- [x] UT-006, UT-007, UT-008, UT-009, UT-010 — invoke availability/args/unknown-id/single-flight-per-policy-class/approval-pending
+- [x] UT-011 — native-tool list ↔ catalog parity
+- [x] UT-012 — settings-destination descriptors cover the route inventory
+- [x] IT-001 — commands GET with seeded providers + jsonl completeness at scale
+- [x] IT-007 — invoke with inline args → tool result envelope
+- [x] IT-009 — invoke policy matrix (404/422/412/202 + denial without side effect)
+- [x] IT-010 — single-flight + failure + approval-lifetime races (409 while pending; deny/timeout release; late approval resolves exactly once)
+- [x] IT-021 — native-tool catalog contract + approval gate honored
+- [x] IT-022 — transport parity for every new route
+- [x] IT-031 — two clients: divergent availability, targeting rules, forged-token rejection, control-plane targeting without token, identical structural revision
+- [x] IT-032 — workspace resolution matrix (ID/name/path/cwd) + two-workspace isolation across CLI/HTTP/UDS/native
+- [x] E2E-022, E2E-023, E2E-024, E2E-026 — agent journeys via Go harness/UDS using `_dx.md` transcripts verbatim (list, invoke + errors, approval approve/deny, native-tool parity)
 
 ## Success Criteria
 
